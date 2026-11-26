@@ -4,7 +4,7 @@ const $=id=>document.getElementById(id);
 const client=supabase.createClient('https://giqigcdgxbyhwgaxiwqs.supabase.co','sb_publishable_CENa512RMVL-G7C1Mc9ZBQ_kmLCFoMu');
 let me=null,people=[],rows=[],admin=false,busy=false;
 function business(){return new Date(Date.now()+9*3600000-18*3600000).toISOString().slice(0,10)}
-function displayStamp(t){if(!t)return '—';const d=new Date(new Date(t).getTime()+9*3600000),h=d.getUTCHours(),m=String(d.getUTCMinutes()).padStart(2,'0');return (h<6?'深夜'+h:String(h).padStart(2,'0'))+':'+m}
+function displayStamp(t){if(!t)return '—';const d=new Date(new Date(t).getTime()+9*3600000),h=d.getUTCHours(),m=String(d.getUTCMinutes()).padStart(2,'0');return String(h)+':'+m}
 function stamp(t){if(!t)return '—';let d=new Date(new Date(t).getTime()+9*3600000);return String(d.getUTCHours()+(d.getUTCHours()<18?24:0)).padStart(2,'0')+':'+String(d.getUTCMinutes()).padStart(2,'0')}
 function el(tag,t,p){let e=document.createElement(tag);e.textContent=t;p.append(e);return e}
 function check(r){if(r.error)throw r.error;return r.data}
